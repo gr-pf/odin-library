@@ -5,6 +5,7 @@ function Book(title, author, page, read) {
   this.author = author;
   this.page = page;
   this.read = read ? "read" : " not read yet";
+  this.id = crypto.randomUUID();
   this.info = function () {
     return `${this.title} by ${this.author}, ${this.page} pages, ${this.read}.`;
   };
