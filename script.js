@@ -1,4 +1,5 @@
 const myLibrary = [];
+const myBooks = document.querySelector(".list-books");
 
 function Book(title, author, page, read) {
   this.title = title;
@@ -16,8 +17,21 @@ function addBookToLibrary(title, author, page, read) {
   myLibrary.push(newBook);
 }
 
-console.log(myLibrary);
 addBookToLibrary("the hobbit", "tolkien", 152, true);
 addBookToLibrary("La Distinction", "Bourdieu", 563, false);
 
-console.log(myLibrary);
+function showBooks() {
+  for (let book of myLibrary) {
+    console.log(book.title);
+  }
+}
+
+showBooks();
+//console.log(myLibrary[0].title);
+
+const list = document.createElement("li");
+const para = document.createElement("p");
+
+myBooks.appendChild(list);
+list.appendChild(para);
+para.innerText = myLibrary[0].title;
