@@ -11,10 +11,13 @@ function Book(title, author, page, read) {
   };
 }
 
-function addBookToLibrary() {
-  // take params, create a book then store it in the array
+function addBookToLibrary(title, author, page, read) {
+  const newBook = new Book(title, author, page, read);
+  myLibrary.push(newBook);
 }
 
-const theHobbit = new Book("the hobbit", "tolkien", 152, true);
+console.log(myLibrary);
+addBookToLibrary("the hobbit", "tolkien", 152, true);
+addBookToLibrary("La Distinction", "Bourdieu", 563, false);
 
-console.log(theHobbit.info());
+console.log(myLibrary);
