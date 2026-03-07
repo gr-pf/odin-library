@@ -3,7 +3,7 @@ export function addBookToLibrary(array, title, author, page, read) {
   array.push(newBook);
 }
 
-export function addBookCard(title, author, page, read) {
+export function addBookCard(title, author, page, read, id) {
   const li = document.createElement("li");
   li.classList.add("book-item");
   const div = document.createElement("div");
@@ -25,6 +25,11 @@ export function addBookCard(title, author, page, read) {
   div.appendChild(pRead);
   pRead.classList.add("book-read");
   pRead.innerText = `${read}`;
+  const delBtn = document.createElement("button");
+  div.appendChild(delBtn);
+  delBtn.classList.add("book-del-btn");
+  delBtn.innerText = `Delete book`;
+  delBtn.setAttribute("data-id", id);
   return li;
 }
 
