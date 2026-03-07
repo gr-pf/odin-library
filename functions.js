@@ -54,3 +54,7 @@ export function removeBookById(array, id) {
     return Book.id !== id;
   });
 }
+
+export function removeLiBookById(event) {
+  event.target.parentElement.parentElement.remove();
+}
