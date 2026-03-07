@@ -3,25 +3,25 @@ export function addBookToLibrary(array, title, author, page, read) {
   array.push(newBook);
 }
 
-export function addBookItem(title, author, page, read, id) {
+export function addBookItem(Book) {
   const li = document.createElement("li");
   li.classList.add("book-item");
   const pTitle = document.createElement("p");
   li.appendChild(pTitle);
   pTitle.classList.add("book-title");
-  pTitle.innerText = `${title}`;
+  pTitle.innerText = `${Book.title}`;
   const pAuthor = document.createElement("p");
   li.appendChild(pAuthor);
   pAuthor.classList.add("book-author");
-  pAuthor.innerText = `by ${author}`;
+  pAuthor.innerText = `by ${Book.author}`;
   const pPage = document.createElement("p");
   li.appendChild(pPage);
   pPage.classList.add("book-page");
-  pPage.innerText = `${page} pages`;
+  pPage.innerText = `${Book.page} pages`;
   const pRead = document.createElement("p");
   li.appendChild(pRead);
   pRead.classList.add("book-read");
-  pRead.innerText = `${read}`;
+  pRead.innerText = `${Book.read}`;
   const spanBtn = document.createElement("span");
   li.appendChild(spanBtn);
   spanBtn.classList.add("btn-wrapper");
@@ -29,12 +29,12 @@ export function addBookItem(title, author, page, read, id) {
   spanBtn.appendChild(delBtn);
   delBtn.classList.add("book-del-btn");
   delBtn.innerText = `Delete`;
-  delBtn.setAttribute("data-id", id);
+  delBtn.setAttribute("data-id", Book.id);
   const readBtn = document.createElement("button");
   spanBtn.appendChild(readBtn);
   readBtn.classList.add("book-read-btn");
   readBtn.innerText = `Read`;
-  readBtn.setAttribute("data-id", id);
+  readBtn.setAttribute("data-id", Book.id);
   return li;
 }
 
