@@ -3,30 +3,27 @@ export function addBookToLibrary(array, title, author, page, read) {
   array.push(newBook);
 }
 
-export function addBookCard(title, author, page, read, id) {
+export function addBookItem(title, author, page, read, id) {
   const li = document.createElement("li");
   li.classList.add("book-item");
-  const div = document.createElement("div");
-  li.appendChild(div);
-  div.classList.add("book-card");
   const pTitle = document.createElement("p");
-  div.appendChild(pTitle);
+  li.appendChild(pTitle);
   pTitle.classList.add("book-title");
   pTitle.innerText = `${title}`;
   const pAuthor = document.createElement("p");
-  div.appendChild(pAuthor);
+  li.appendChild(pAuthor);
   pAuthor.classList.add("book-author");
   pAuthor.innerText = `by ${author}`;
   const pPage = document.createElement("p");
-  div.appendChild(pPage);
+  li.appendChild(pPage);
   pPage.classList.add("book-page");
   pPage.innerText = `${page} pages`;
   const pRead = document.createElement("p");
-  div.appendChild(pRead);
+  li.appendChild(pRead);
   pRead.classList.add("book-read");
   pRead.innerText = `${read}`;
   const spanBtn = document.createElement("span");
-  div.appendChild(spanBtn);
+  li.appendChild(spanBtn);
   spanBtn.classList.add("btn-wrapper");
   const delBtn = document.createElement("button");
   spanBtn.appendChild(delBtn);
