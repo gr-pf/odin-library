@@ -9,10 +9,22 @@ export function addBookCard(title, author, page, read) {
   const div = document.createElement("div");
   li.appendChild(div);
   div.classList.add("book-card");
-  const p = document.createElement("p");
-  div.appendChild(p);
-  p.classList.add("book-content");
-  p.innerText = `${title} by ${author}, ${page} pages, ${read}.`;
+  const pTitle = document.createElement("p");
+  div.appendChild(pTitle);
+  pTitle.classList.add("book-title");
+  pTitle.innerText = `${title}`;
+  const pAuthor = document.createElement("p");
+  div.appendChild(pAuthor);
+  pAuthor.classList.add("book-author");
+  pAuthor.innerText = `by ${author}`;
+  const pPage = document.createElement("p");
+  div.appendChild(pPage);
+  pPage.classList.add("book-page");
+  pPage.innerText = `${page} pages`;
+  const pRead = document.createElement("p");
+  div.appendChild(pRead);
+  pRead.classList.add("book-read");
+  pRead.innerText = `${read}`;
   return li;
 }
 
