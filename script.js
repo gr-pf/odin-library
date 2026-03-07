@@ -1,61 +1,54 @@
 import {
   addBookToLibrary,
-  addBookCard,
+  addBookItem,
   Book,
   removeBookById,
-  removeLiBookById,
+  toogleRead,
+  showBooks,
 } from "./functions.js";
 
 let myLibrary = [];
 const myBooks = document.querySelector(".list-books");
 
 const initBook1 = new Book("the hobbit", "tolkien", 152, true);
-addBookToLibrary(
-  myLibrary,
-  initBook1.title,
-  initBook1.author,
-  initBook1.page,
-  initBook1.read,
-);
-myBooks.appendChild(
-  addBookCard(
-    initBook1.title,
-    initBook1.author,
-    initBook1.page,
-    initBook1.read,
-    initBook1.id,
-  ),
-);
+addBookToLibrary(myLibrary, initBook1);
+
 const initBook2 = new Book("La Distinction", "Bourdieu", 563, false);
-addBookToLibrary(
-  myLibrary,
-  initBook2.title,
-  initBook2.author,
-  initBook2.page,
-  initBook2.read,
-);
-myBooks.appendChild(
-  addBookCard(
-    initBook2.title,
-    initBook2.author,
-    initBook2.page,
-    initBook2.read,
-    initBook2.id,
-  ),
-);
+addBookToLibrary(myLibrary, initBook2);
+
+showBooks(myLibrary, myBooks);
+activeBtns();
 
 function activeDelBtn() {
   const delButtons = document.querySelectorAll(".book-del-btn");
   delButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      const bookId = e.target.getAttribute("data-id");
-      myLibrary = removeBookById(myLibrary, bookId);
-      removeLiBookById(e);
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      const bookId = event.target.getAttribute("data-id");
+      removeBookById(myLibrary, bookId);
+      showBooks(myLibrary, myBooks);
+      activeBtns();
     });
   });
 }
-activeDelBtn();
+
+function activeReadBtn() {
+  const delButtons = document.querySelectorAll(".book-read-btn");
+  delButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      const bookId = event.target.getAttribute("data-id");
+      toogleRead(myLibrary, bookId);
+      showBooks(myLibrary, myBooks);
+      activeBtns();
+    });
+  });
+}
+
+function activeBtns() {
+  activeDelBtn();
+  activeReadBtn();
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#form");
@@ -64,15 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     const newBook = new Book(obj.title, obj.author, obj.pages, obj.read);
-    myBooks.appendChild(
-      addBookCard(
-        newBook.title,
-        newBook.author,
-        newBook.page,
-        newBook.read,
-        newBook.id,
-      ),
-    );
-    activeDelBtn();
+    addBookToLibrary(myLibrary, newBook);
+    showBooks(myLibrary, myBooks);
+    activeBtns();
   });
 });
