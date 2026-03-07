@@ -37,10 +37,13 @@ export function Book(title, author, page, read) {
   this.title = title;
   this.author = author;
   this.page = page;
-  this.read = read ? "read" : " not read yet";
+  this.read = read ? "read" : "not read yet";
   this.id = crypto.randomUUID();
   this.info = function () {
     return `${this.title} by ${this.author}, ${this.page} pages, ${this.read}.`;
+  };
+  this.toggleRead = function () {
+    this.read = this.read === "not read yet" ? "read" : "not read yet";
   };
 }
 
