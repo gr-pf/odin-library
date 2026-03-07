@@ -36,7 +36,7 @@ li {
 }
 
 .wrapper {
-  width: 850px;
+  width: 950px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@ li {
 }
 
 .form-add-book {
-  width: 80%;
+  width: 60%;
   background-color: var(--secondary-color);
   border-radius: 10px;
   display: flex;
@@ -130,9 +130,14 @@ li {
   font-weight: 600;
 }
 
-.book-del-btn {
+.btn-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.book-del-btn,
+.book-read-btn {
   border-radius: 20px;
-  margin: 0.8rem 0.6rem 0;
-  padding: 0.2rem;
+  margin: 0.8rem 0.3rem 0;
+  padding: 0.2rem 0.5rem;
   background-color: var(--accent-color);
 }
