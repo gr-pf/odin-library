@@ -43,3 +43,14 @@ export function Book(title, author, page, read) {
     return `${this.title} by ${this.author}, ${this.page} pages, ${this.read}.`;
   };
 }
+
+export function delBook(event) {
+  const bookToDel = document.querySelector("");
+  event.target.parentElement;
+}
+
+export function removeBookById(array, id) {
+  return array.filter((Book) => {
+    return Book.id !== id;
+  });
+}
