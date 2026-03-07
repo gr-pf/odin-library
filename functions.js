@@ -1,6 +1,5 @@
-export function addBookToLibrary(array, title, author, page, read) {
-  const newBook = new Book(title, author, page, read);
-  array.push(newBook);
+export function addBookToLibrary(library, Book) {
+  library.push(Book);
 }
 
 export function addBookItem(Book) {
