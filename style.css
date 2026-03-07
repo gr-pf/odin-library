@@ -108,7 +108,7 @@ li {
   gap: 1rem;
 }
 
-.book-card {
+.book-item {
   background-color: var(--primary-color);
   border-radius: 10px;
   padding: 1rem;
@@ -116,10 +116,9 @@ li {
   flex-direction: column;
   gap: 0;
   box-shadow: 0px 1px 4px 0px #000;
-  height: 100%;
 }
 
-.book-card p {
+.book-item p {
   margin: 0;
   padding: 0;
   line-height: 1.5;
