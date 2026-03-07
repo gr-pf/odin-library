@@ -25,11 +25,19 @@ export function addBookCard(title, author, page, read, id) {
   div.appendChild(pRead);
   pRead.classList.add("book-read");
   pRead.innerText = `${read}`;
+  const spanBtn = document.createElement("span");
+  div.appendChild(spanBtn);
+  spanBtn.classList.add("btn-wrapper");
   const delBtn = document.createElement("button");
-  div.appendChild(delBtn);
+  spanBtn.appendChild(delBtn);
   delBtn.classList.add("book-del-btn");
-  delBtn.innerText = `Delete book`;
+  delBtn.innerText = `Delete`;
   delBtn.setAttribute("data-id", id);
+  const readBtn = document.createElement("button");
+  spanBtn.appendChild(readBtn);
+  readBtn.classList.add("book-read-btn");
+  readBtn.innerText = `Read`;
+  readBtn.setAttribute("data-id", id);
   return li;
 }
 
