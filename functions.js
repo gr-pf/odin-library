@@ -1,7 +1,17 @@
+/**
+ *
+ * @param {array} library
+ * @param {Book} Book
+ */
 export function addBookToLibrary(library, Book) {
   library.push(Book);
 }
 
+/**
+ *
+ * @param {Book} Book
+ * @returns {HTMLElement}
+ */
 export function addBookItem(Book) {
   const li = document.createElement("li");
   li.classList.add("book-item");
@@ -36,7 +46,13 @@ export function addBookItem(Book) {
   readBtn.setAttribute("data-id", Book.id);
   return li;
 }
-
+/**
+ *
+ * @param {string} title
+ * @param {string} author
+ * @param {number} page
+ * @param {?string} read
+ */
 export function Book(title, author, page, read) {
   this.title = title;
   this.author = author;
@@ -51,17 +67,44 @@ export function Book(title, author, page, read) {
   };
 }
 
+/**
+ *
+ * @param {array} myLibrary
+ * @param {HTMLElement} ListBooks
+ */
+export function showBooks(myLibrary, ListBooks) {
+  ListBooks.innerHTML = "";
+  for (let book of myLibrary) {
+    ListBooks.appendChild(addBookItem(book));
+  }
+}
+
+/**
+ *
+ * @param {Event} event
+ */
 export function delBook(event) {
   const bookToDel = document.querySelector("");
   event.target.parentElement;
 }
 
-export function removeBookById(array, id) {
-  return array.filter((Book) => {
-    return Book.id !== id;
-  });
+/**
+ *
+ * @param {array} myLibrary
+ * @param {string} id
+ */
+export function removeBookById(myLibrary, id) {
+  const index = myLibrary.findIndex((book) => book.id === id);
+  myLibrary.splice(index, 1);
 }
 
-export function removeLiBookById(event) {
-  event.target.parentElement.parentElement.remove();
+/**
+ *
+ * @param {array} myLibrary
+ * @param {string} id
+ */
+export function toogleRead(myLibrary, id) {
+  const index = myLibrary.findIndex((book) => book.id === id);
+  myLibrary[index].read =
+    myLibrary[index].read === "read" ? "not read yet" : "read";
 }
