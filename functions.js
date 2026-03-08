@@ -81,15 +81,6 @@ export function showBooks(myLibrary, ListBooks) {
 
 /**
  *
- * @param {Event} event
- */
-export function delBook(event) {
-  const bookToDel = document.querySelector("");
-  event.target.parentElement;
-}
-
-/**
- *
  * @param {array} myLibrary
  * @param {string} id
  */
