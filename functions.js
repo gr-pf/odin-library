@@ -46,25 +46,38 @@ export function addBookItem(Book) {
   readBtn.setAttribute("data-id", Book.id);
   return li;
 }
-/**
- *
- * @param {string} title
- * @param {string} author
- * @param {number} page
- * @param {?string} read
- */
-export function Book(title, author, page, read) {
-  this.title = title;
-  this.author = author;
-  this.page = page;
-  this.read = read ? "read" : "not read yet";
-  this.id = crypto.randomUUID();
-  this.info = function () {
+
+export class Book {
+  /**
+   *
+   * @param {string} title
+   * @param {string} author
+   * @param {number} page
+   * @param {?string} read
+   */
+  constructor(title, author, page, read) {
+    this.title = title;
+    this.author = author;
+    this.page = page;
+    this.read = read ? "read" : "not read yet";
+    this.id = crypto.randomUUID();
+  }
+
+  /**
+   *
+   * @returns {string}
+   */
+  info() {
     return `${this.title} by ${this.author}, ${this.page} pages, ${this.read}.`;
-  };
-  this.toggleRead = function () {
+  }
+
+  /**
+   *
+   * @returns {string}
+   */
+  toggleRead() {
     this.read = this.read === "not read yet" ? "read" : "not read yet";
-  };
+  }
 }
 
 /**
