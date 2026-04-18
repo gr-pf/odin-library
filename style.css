@@ -85,7 +85,7 @@ li {
 
 .input.title:required,
 .input.author:required {
-  background-color: red;
+  background-color: rgb(229, 128, 128);
 }
 
 .add-btn {
