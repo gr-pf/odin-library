@@ -85,7 +85,18 @@ li {
 
 .input.title:required,
 .input.author:required {
-  background-color: rgb(229, 128, 128);
+  border-color: red;
+}
+
+.input.title:valid,
+.input.author:valid {
+  background-color: var(--accent-color);
+  border-color: rgb(118, 118, 118);
+}
+
+.input.title:invalid,
+.input.author:invalid {
+  background-color: rgb(255, 152, 152);
 }
 
 .add-btn {
